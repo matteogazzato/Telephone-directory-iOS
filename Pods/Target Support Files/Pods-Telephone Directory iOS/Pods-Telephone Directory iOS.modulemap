@@ -1,0 +1,6 @@
+framework module Pods_Telephone_Directory_iOS {
+  umbrella header "Pods-Telephone Directory iOS-umbrella.h"
+
+  export *
+  module * { export * }
+}
