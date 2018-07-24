@@ -8,10 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		473971E321067D720016CCC6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473971E221067D720016CCC6 /* AppDelegate.swift */; };
-		473971E521067D720016CCC6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473971E421067D720016CCC6 /* ViewController.swift */; };
+		473971E521067D720016CCC6 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473971E421067D720016CCC6 /* HomeViewController.swift */; };
 		473971E821067D720016CCC6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 473971E621067D720016CCC6 /* Main.storyboard */; };
 		473971EA21067D720016CCC6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 473971E921067D720016CCC6 /* Assets.xcassets */; };
 		473971ED21067D720016CCC6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 473971EB21067D720016CCC6 /* LaunchScreen.storyboard */; };
+		47916A922107C18200C8B758 /* EntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47916A912107C18200C8B758 /* EntryViewController.swift */; };
 		A84F9B695986E0C44D8CE818 /* Pods_Telephone_Directory_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E865B61EDF8CF43E9030C21 /* Pods_Telephone_Directory_iOS.framework */; };
 /* End PBXBuildFile section */
 
@@ -20,11 +21,12 @@
 		3E865B61EDF8CF43E9030C21 /* Pods_Telephone_Directory_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Telephone_Directory_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		473971DF21067D720016CCC6 /* Telephone Directory iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Telephone Directory iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		473971E221067D720016CCC6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		473971E421067D720016CCC6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		473971E421067D720016CCC6 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		473971E721067D720016CCC6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		473971E921067D720016CCC6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		473971EC21067D720016CCC6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		473971EE21067D720016CCC6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		47916A912107C18200C8B758 /* EntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryViewController.swift; sourceTree = "<group>"; };
 		B775F9270F55CD184653DC88 /* Pods-Telephone Directory iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Telephone Directory iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-Telephone Directory iOS/Pods-Telephone Directory iOS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -62,7 +64,8 @@
 			isa = PBXGroup;
 			children = (
 				473971E221067D720016CCC6 /* AppDelegate.swift */,
-				473971E421067D720016CCC6 /* ViewController.swift */,
+				473971E421067D720016CCC6 /* HomeViewController.swift */,
+				47916A912107C18200C8B758 /* EntryViewController.swift */,
 				473971E621067D720016CCC6 /* Main.storyboard */,
 				473971E921067D720016CCC6 /* Assets.xcassets */,
 				473971EB21067D720016CCC6 /* LaunchScreen.storyboard */,
@@ -219,8 +222,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				473971E521067D720016CCC6 /* ViewController.swift in Sources */,
+				473971E521067D720016CCC6 /* HomeViewController.swift in Sources */,
 				473971E321067D720016CCC6 /* AppDelegate.swift in Sources */,
+				47916A922107C18200C8B758 /* EntryViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
