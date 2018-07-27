@@ -8,8 +8,9 @@
 
 import UIKit
 import RealmSwift
+import ContactsUI
 
-class EntryViewController: UIViewController {
+class EntryViewController: UIViewController, CNContactPickerDelegate {
   
   // MARK: Outlets
   @IBOutlet weak var firstNameTextField: UITextField!
@@ -91,4 +92,21 @@ class EntryViewController: UIViewController {
       }
     return false
   }
+  
+  // MARK: Actions
+  @IBAction func importNewContactFromContacts(_ sender: Any) {
+    let contactPicker = CNContactPickerViewController()
+    contactPicker.delegate = self
+    contactPicker.displayedPropertyKeys = [CNContactPhoneNumbersKey]
+    self.present(contactPicker, animated: true, completion: nil)
+  }
+  
+  //MARK: CNContactPicker Delegate Methods
+  
+  func contactPicker(_ picker: CNContactPickerViewController, didSelect contactProperty: CNContactProperty) {
+    firstNameTextField.text = contactProperty.contact.givenName
+    lastNameTextField.text = contactProperty.contact.familyName
+    let phoneNumber = contactProperty.value as! CNPhoneNumber
+    phoneNumberTextField.text = phoneNumber.stringValue
+  }  
 }
