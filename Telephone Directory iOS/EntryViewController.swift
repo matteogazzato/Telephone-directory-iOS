@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class EntryViewController: UIViewController {
   
@@ -43,15 +44,26 @@ class EntryViewController: UIViewController {
   }
   
   @objc func saveAndGoToHome() {
-    // TODO: Add operations to save/add new entry
     // Check First Name and Last Name
     var validation = true
     validation = validation && validateFirstLastName()
     validation = validation && validatePhoneNumber()
-    
-    
-    
-    self.dismiss(animated: true, completion: nil)
+    if validation {
+      let newContact = Contact()
+      newContact.firstName = firstNameTextField.text!
+      newContact.lastName = lastNameTextField.text!
+      newContact.telephoneNumber = phoneNumberTextField.text!
+      let realm = try! Realm()
+      try! realm.write {
+        realm.add(newContact)
+      }
+      self.dismiss(animated: true, completion: nil)
+    } else {
+      let alertAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+      let alertViewController = UIAlertController(title: "Warning", message: "Information must be in the correct format", preferredStyle: .alert)
+      alertViewController.addAction(alertAction)
+      self.present(alertViewController, animated: true, completion: nil)
+    }
   }
   
   // MARK: Fields Validation
