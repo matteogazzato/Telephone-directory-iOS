@@ -8,10 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		473971E321067D720016CCC6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473971E221067D720016CCC6 /* AppDelegate.swift */; };
-		473971E521067D720016CCC6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473971E421067D720016CCC6 /* ViewController.swift */; };
+		473971E521067D720016CCC6 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473971E421067D720016CCC6 /* HomeViewController.swift */; };
 		473971E821067D720016CCC6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 473971E621067D720016CCC6 /* Main.storyboard */; };
 		473971EA21067D720016CCC6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 473971E921067D720016CCC6 /* Assets.xcassets */; };
 		473971ED21067D720016CCC6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 473971EB21067D720016CCC6 /* LaunchScreen.storyboard */; };
+		47916A922107C18200C8B758 /* EntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47916A912107C18200C8B758 /* EntryViewController.swift */; };
+		47BE1133210B66AE00B97113 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47BE1132210B66AE00B97113 /* Contact.swift */; };
+		47BE1136210DC7D200B97113 /* ContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47BE1135210DC7D200B97113 /* ContactTableViewCell.swift */; };
 		A84F9B695986E0C44D8CE818 /* Pods_Telephone_Directory_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E865B61EDF8CF43E9030C21 /* Pods_Telephone_Directory_iOS.framework */; };
 /* End PBXBuildFile section */
 
@@ -20,11 +23,14 @@
 		3E865B61EDF8CF43E9030C21 /* Pods_Telephone_Directory_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Telephone_Directory_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		473971DF21067D720016CCC6 /* Telephone Directory iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Telephone Directory iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		473971E221067D720016CCC6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		473971E421067D720016CCC6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		473971E421067D720016CCC6 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		473971E721067D720016CCC6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		473971E921067D720016CCC6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		473971EC21067D720016CCC6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		473971EE21067D720016CCC6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		47916A912107C18200C8B758 /* EntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryViewController.swift; sourceTree = "<group>"; };
+		47BE1132210B66AE00B97113 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
+		47BE1135210DC7D200B97113 /* ContactTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactTableViewCell.swift; sourceTree = "<group>"; };
 		B775F9270F55CD184653DC88 /* Pods-Telephone Directory iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Telephone Directory iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-Telephone Directory iOS/Pods-Telephone Directory iOS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -61,14 +67,33 @@
 		473971E121067D720016CCC6 /* Telephone Directory iOS */ = {
 			isa = PBXGroup;
 			children = (
+				47BE1134210DC78900B97113 /* UI Elements */,
+				47BE1131210B666C00B97113 /* Entities */,
 				473971E221067D720016CCC6 /* AppDelegate.swift */,
-				473971E421067D720016CCC6 /* ViewController.swift */,
+				473971E421067D720016CCC6 /* HomeViewController.swift */,
+				47916A912107C18200C8B758 /* EntryViewController.swift */,
 				473971E621067D720016CCC6 /* Main.storyboard */,
 				473971E921067D720016CCC6 /* Assets.xcassets */,
 				473971EB21067D720016CCC6 /* LaunchScreen.storyboard */,
 				473971EE21067D720016CCC6 /* Info.plist */,
 			);
 			path = "Telephone Directory iOS";
+			sourceTree = "<group>";
+		};
+		47BE1131210B666C00B97113 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				47BE1132210B66AE00B97113 /* Contact.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		47BE1134210DC78900B97113 /* UI Elements */ = {
+			isa = PBXGroup;
+			children = (
+				47BE1135210DC7D200B97113 /* ContactTableViewCell.swift */,
+			);
+			path = "UI Elements";
 			sourceTree = "<group>";
 		};
 		B1D2DAA97EF8172163E6F6A1 /* Pods */ = {
@@ -219,8 +244,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				473971E521067D720016CCC6 /* ViewController.swift in Sources */,
+				47BE1133210B66AE00B97113 /* Contact.swift in Sources */,
+				47BE1136210DC7D200B97113 /* ContactTableViewCell.swift in Sources */,
+				473971E521067D720016CCC6 /* HomeViewController.swift in Sources */,
 				473971E321067D720016CCC6 /* AppDelegate.swift in Sources */,
+				47916A922107C18200C8B758 /* EntryViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
