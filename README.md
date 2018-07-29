@@ -32,7 +32,8 @@ Tested on:
 
 ## Installation
 
-Clone the repository, build and run `Telephone Directory iOS` scheme (CMD + R)
+Clone the repository, build and run `Telephone Directory iOS` scheme (CMD + R).
+If you want to run on physical device, remember to add a valid `DEVELOPMENT_TEAM` in Signing's Target settings.
 
 ## License
 
