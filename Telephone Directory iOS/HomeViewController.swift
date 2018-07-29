@@ -14,7 +14,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
   // MARK: Outlets
   @IBOutlet weak var searchResultsTableView: UITableView!
   @IBOutlet weak var searchTextField: UITextField!
-  
+  @IBOutlet weak var noSearchResultsLabel: UILabel!
   
   // MARK: Var and Constants
   static let EditEntrySegue = "EditEntrySegueIdentifier"
@@ -32,8 +32,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
   }
   
   override func viewWillAppear(_ animated: Bool) {
-     super.viewWillAppear(animated)
-    searchResultsTableView.reloadData()
+    super.viewWillAppear(animated)
+    showResults()
   }
   
   override func didReceiveMemoryWarning() {
@@ -49,13 +49,28 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
       searchQueryFilter = ""
     }
     filterResults()
+    showResults()
   }
   
   private func filterResults() {
     let query = "firstName contains[c] '\(searchQueryFilter)' OR lastName contains[c] '\(searchQueryFilter)' OR telephoneNumber contains[c] '\(searchQueryFilter)'"
     let realm = try! Realm()
     searchFilteredResults = Array(realm.objects(Contact.self).filter(query))
-    searchResultsTableView.reloadData()
+  }
+  
+  private func showResults() {
+    if searchFilteredResults.count != 0 {
+      noSearchResultsLabel.isHidden = true
+      searchResultsTableView.isHidden = false
+      searchResultsTableView.reloadData()
+    } else {
+      noSearchResultsLabel.isHidden = false
+      searchResultsTableView.isHidden = true
+    }
+  }
+  
+  override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    self.view.endEditing(true)
   }
   
   // MARK: UITabelView Delegate Methods
@@ -81,9 +96,15 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     return 125.0
   }
   
-  
-  
   // MARK: UITextField Delegate Methods
+  func textFieldDidEndEditing(_ textField: UITextField) {
+    textField.resignFirstResponder()
+  }
+  
+  func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    textField.resignFirstResponder()
+    return true
+  }
   
   // MARK: ContactTableViewCell Delegate Methods
   func editContactAtIndexPath(_ indexPath: IndexPath) {

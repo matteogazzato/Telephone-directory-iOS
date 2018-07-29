@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Telephone Directory iOS/EntryViewController.swift"
-            timestampString = "554558134.8729891"
+            timestampString = "554561252.554579"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "28"
@@ -36,11 +36,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Telephone Directory iOS/HomeViewController.swift"
-            timestampString = "554558134.873435"
+            timestampString = "554561252.557946"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "91"
-            endingLineNumber = "91"
+            startingLineNumber = "112"
+            endingLineNumber = "112"
             landmarkName = "editContactAtIndexPath(_:)"
             landmarkType = "7">
          </BreakpointContent>
