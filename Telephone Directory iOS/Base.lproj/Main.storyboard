@@ -33,7 +33,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ContactTableViewCell" rowHeight="125" id="9Nf-im-FjX" customClass="ContactTableViewCell" customModule="Telephone_Directory_iOS" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ContactTableViewCell" rowHeight="125" id="9Nf-im-FjX" customClass="ContactTableViewCell" customModule="Telephone_Directory_iOS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="343" height="125"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9Nf-im-FjX" id="aoQ-RP-NKm">
@@ -58,13 +58,15 @@
                                                     <rect key="frame" x="232" y="74" width="96" height="40"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" title="Edit this entry"/>
+                                                    <connections>
+                                                        <action selector="editContactAction:" destination="9Nf-im-FjX" eventType="touchUpInside" id="1dl-5n-QAB"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="fullNameLabel" destination="TM0-9q-WDt" id="us0-za-vqS"/>
                                             <outlet property="telephoneNumberLabel" destination="62J-Nn-HsE" id="f55-vF-6Rv"/>
-                                            <segue destination="H0O-bS-3KF" kind="show" identifier="EditEntrySegueIdentifier" action="showDetailViewController:sender:" id="8qr-la-Jgk"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -80,7 +82,7 @@
                     <navigationItem key="navigationItem" id="ydy-PD-ZUJ">
                         <barButtonItem key="rightBarButtonItem" title="Add new entry" id="cEF-BT-tpr">
                             <connections>
-                                <segue destination="H0O-bS-3KF" kind="presentation" identifier="AddNewEntrySegueIdentifier" id="Fu8-gv-lHO"/>
+                                <segue destination="H0O-bS-3KF" kind="presentation" identifier="EntrySegueIdentifier" id="Fu8-gv-lHO"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -92,7 +94,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="360.80000000000001" y="133.5832083958021"/>
+            <point key="canvasLocation" x="428" y="132"/>
         </scene>
         <!--Entry View Controller-->
         <scene sceneID="JP6-rb-ahl">
@@ -145,7 +147,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="991-Lr-Dav" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2044" y="134"/>
+            <point key="canvasLocation" x="1898" y="132"/>
         </scene>
         <!--Home Navigation View Controller-->
         <scene sceneID="XM8-nw-RHK">
@@ -170,6 +172,7 @@
             <objects>
                 <navigationController title="Entry Navigation View Controller" automaticallyAdjustsScrollViewInsets="NO" id="H0O-bS-3KF" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="cyY-W5-AY2"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="g32-df-eOA">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -181,10 +184,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EVS-PM-gao" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1291.2" y="132.23388305847078"/>
+            <point key="canvasLocation" x="1186" y="132"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="8qr-la-Jgk"/>
-    </inferredMetricsTieBreakers>
 </document>

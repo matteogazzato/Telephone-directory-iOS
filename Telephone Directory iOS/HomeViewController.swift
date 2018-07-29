@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
+class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, ContactTableViewCellDelegate {
   
   // MARK: Outlets
   @IBOutlet weak var searchResultsTableView: UITableView!
@@ -18,9 +18,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
   
   // MARK: Var and Constants
   static let EditEntrySegue = "EditEntrySegueIdentifier"
-  static let AddNewEntrySegue = "AddNewEntrySegueIdentifier"
+  static let EntrySegue = "EntrySegueIdentifier"
   private var searchQueryFilter = ""
   private var searchFilteredResults = [Contact]()
+  private var selectedContactToEdit = Contact()
   
   // MARK: UI Lifecycle
   override func viewDidLoad() {
@@ -30,12 +31,17 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     searchResultsTableView.tableFooterView = UIView()
   }
   
+  override func viewWillAppear(_ animated: Bool) {
+     super.viewWillAppear(animated)
+    searchResultsTableView.reloadData()
+  }
+  
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
   }
   
-  //MARK: Class Methods
+  // MARK: Class Methods
   @objc private func setNewSearchQueryFromTextField(_ textField: UITextField) {
     if let text = textField.text {
       searchQueryFilter = text
@@ -55,6 +61,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
   // MARK: UITabelView Delegate Methods
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let contactCell = tableView.dequeueReusableCell(withIdentifier: ContactTableViewCell.ContactTableViewCellIdentifier) as! ContactTableViewCell
+    contactCell.delegate = self
+    contactCell.indexPath = indexPath
     let contact = searchFilteredResults[indexPath.row]
     contactCell.fullNameLabel.text = "\(contact.firstName) - \(contact.lastName)"
     contactCell.telephoneNumberLabel.text = contact.telephoneNumber
@@ -73,24 +81,28 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     return 125.0
   }
   
-  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    if let selectedCell = tableView.cellForRow(at: indexPath) {
-      performSegue(withIdentifier: HomeViewController.EditEntrySegue, sender: selectedCell)
-    }
-  }
+  
   
   // MARK: UITextField Delegate Methods
-
+  
+  // MARK: ContactTableViewCell Delegate Methods
+  func editContactAtIndexPath(_ indexPath: IndexPath) {
+    selectedContactToEdit = searchFilteredResults[indexPath.row]
+    performSegue(withIdentifier: HomeViewController.EntrySegue, sender: nil)
+  }
   
   // MARK: Navigation
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    let entryNavigationViewController = segue.destination as! UINavigationController
-    let entryViewController = entryNavigationViewController.viewControllers.first as! EntryViewController
     switch segue.identifier! {
-    case HomeViewController.AddNewEntrySegue:
-      entryViewController.editMode = false
-    case HomeViewController.EditEntrySegue:
-      entryViewController.editMode = true
+    case HomeViewController.EntrySegue:
+      let entryNavigationViewController = segue.destination as! UINavigationController
+      let entryViewController = entryNavigationViewController.viewControllers.first as! EntryViewController
+      if let _ = sender {
+        entryViewController.editMode = false
+      } else {
+        entryViewController.editMode = true
+        entryViewController.contact = selectedContactToEdit
+      }
     default:
       return
     }
