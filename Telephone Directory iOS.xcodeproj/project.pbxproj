@@ -67,11 +67,10 @@
 		473971E121067D720016CCC6 /* Telephone Directory iOS */ = {
 			isa = PBXGroup;
 			children = (
+				47E91FED210E0C2200D2D972 /* View Controllers */,
 				47BE1134210DC78900B97113 /* UI Elements */,
 				47BE1131210B666C00B97113 /* Entities */,
 				473971E221067D720016CCC6 /* AppDelegate.swift */,
-				473971E421067D720016CCC6 /* HomeViewController.swift */,
-				47916A912107C18200C8B758 /* EntryViewController.swift */,
 				473971E621067D720016CCC6 /* Main.storyboard */,
 				473971E921067D720016CCC6 /* Assets.xcassets */,
 				473971EB21067D720016CCC6 /* LaunchScreen.storyboard */,
@@ -94,6 +93,15 @@
 				47BE1135210DC7D200B97113 /* ContactTableViewCell.swift */,
 			);
 			path = "UI Elements";
+			sourceTree = "<group>";
+		};
+		47E91FED210E0C2200D2D972 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				473971E421067D720016CCC6 /* HomeViewController.swift */,
+				47916A912107C18200C8B758 /* EntryViewController.swift */,
+			);
+			path = "View Controllers";
 			sourceTree = "<group>";
 		};
 		B1D2DAA97EF8172163E6F6A1 /* Pods */ = {
