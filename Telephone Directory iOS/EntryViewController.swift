@@ -10,7 +10,7 @@ import UIKit
 import RealmSwift
 import ContactsUI
 
-class EntryViewController: UIViewController, CNContactPickerDelegate {
+class EntryViewController: UIViewController, CNContactPickerDelegate, UITextFieldDelegate {
   
   // MARK: Outlets
   @IBOutlet weak var firstNameTextField: UITextField!
@@ -74,10 +74,14 @@ class EntryViewController: UIViewController, CNContactPickerDelegate {
       self.dismiss(animated: true, completion: nil)
     } else {
       let alertAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
-      let alertViewController = UIAlertController(title: "Warning", message: "Information must be in the correct format", preferredStyle: .alert)
+      let alertViewController = UIAlertController(title: "Warning", message: "Information must be in the correct format: no empty first or last name, the phone number should be of the form +39 02 1234567, with at least 6 digits", preferredStyle: .alert)
       alertViewController.addAction(alertAction)
       self.present(alertViewController, animated: true, completion: nil)
     }
+  }
+  
+  override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    self.view.endEditing(true)
   }
   
   // MARK: Fields Validation
@@ -104,6 +108,16 @@ class EntryViewController: UIViewController, CNContactPickerDelegate {
       }
     }
     return false
+  }
+  
+  // MARK: UITextField Delegate Methods
+  func textFieldDidEndEditing(_ textField: UITextField) {
+    textField.resignFirstResponder()
+  }
+  
+  func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    textField.resignFirstResponder()
+    return true
   }
   
   // MARK: Actions
